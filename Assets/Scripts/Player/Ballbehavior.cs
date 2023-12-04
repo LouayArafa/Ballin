@@ -15,6 +15,7 @@ public class Ballbehavior : MonoBehaviour
 
     public float LunchSpeed;
     public float SideSpeed;
+    public float MaxSpeed;
     #endregion
 
     #region Variables
@@ -30,6 +31,7 @@ public class Ballbehavior : MonoBehaviour
     {
         m_rigidbody.AddForce(cam.transform.forward * LunchSpeed);
         m_rigidbody.AddForce(cam.transform.right * inputs.HorizontalMovement * SideSpeed);
+        m_rigidbody.velocity = Vector3.ClampMagnitude(m_rigidbody.velocity, MaxSpeed);
     }
     #endregion
 
