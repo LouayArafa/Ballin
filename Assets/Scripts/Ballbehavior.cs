@@ -9,7 +9,7 @@ public class Ballbehavior : MonoBehaviour
     #region Variables
     public Rigidbody m_rigidbody;
     public PlayerInputs inputs;
-    public Transform BowlingBall;
+    public Transform cam;
 
     private Vector3 Velocity;
 
@@ -28,8 +28,8 @@ public class Ballbehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_rigidbody.AddForce(transform.TransformDirection(transform.forward) * LunchSpeed);
-
+        m_rigidbody.AddForce(cam.transform.forward * LunchSpeed);
+        m_rigidbody.AddForce(cam.transform.right * inputs.HorizontalMovement * SideSpeed);
     }
     #endregion
 
