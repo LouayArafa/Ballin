@@ -179,7 +179,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.0010000003
+  m_Radius: 0.1
   m_Center: {x: -2.910383e-10, y: 0.0000000028824434, z: 0}
 --- !u!1 &598208643
 GameObject:
@@ -503,10 +503,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d1165ab5f112944a6d67966d7ba001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rigidbody: {fileID: 0}
+  m_rigidbody: {fileID: 242624921}
   inputs: {fileID: 1393106423}
   BowlingBall: {fileID: 0}
-  LunchSpeed: 1
+  LunchSpeed: 0.05
   SideSpeed: 4.38
 --- !u!114 &1393106423
 MonoBehaviour:
@@ -530,14 +530,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393106421}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.83388585, z: 0, w: 0.551937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.81, z: -4.5200005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 242624920}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -113, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1412256273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -548,15 +548,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a3f7671bca9d9474d9cb5f785c715ad1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3f7671bca9d9474d9cb5f785c715ad1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3f7671bca9d9474d9cb5f785c715ad1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3f7671bca9d9474d9cb5f785c715ad1, type: 3}
       propertyPath: m_LocalPosition.x

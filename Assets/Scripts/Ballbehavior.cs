@@ -29,6 +29,7 @@ public class Ballbehavior : MonoBehaviour
     void Update()
     {
         m_rigidbody.AddForce(transform.TransformDirection(transform.forward) * LunchSpeed);
+
     }
     #endregion
 
