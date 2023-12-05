@@ -2,37 +2,66 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ballbehavior : MonoBehaviour
 {
 
-    #region Variables
-    public Rigidbody m_rigidbody;
-    public PlayerInputs inputs;
+    public Rigidbody rb;
     public Transform cam;
-
-    private Vector3 Velocity;
 
     public float LaunchSpeed;
     public float SideSpeed;
     public float MaxSpeed;
-    #endregion
 
-    #region Variables
+
+    public Vector3 Offset;
+
+    public bool IsControllable = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        m_rigidbody = GetComponentInChildren<Rigidbody>();
-        inputs = GetComponent<PlayerInputs>();
+        rb = GetComponentInChildren<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        m_rigidbody.AddForce(cam.transform.forward * LaunchSpeed);
-        m_rigidbody.AddForce(cam.transform.right * inputs.HorizontalMovement * SideSpeed);
-        m_rigidbody.velocity = Vector3.ClampMagnitude(m_rigidbody.velocity, MaxSpeed);
+        rb.AddForce(cam.transform.forward * LaunchSpeed);
+
+        if (IsControllable == true)
+        {
+            float HorizontalMovement = Input.GetAxis("Horizontal");
+
+            rb.AddForce(cam.transform.right * HorizontalMovement * SideSpeed);
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, MaxSpeed);
+
+            CameraFollow();
+        }
+
+       
     }
-    #endregion
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.name == "Limit")
+        {
+            Debug.Log("bobma");
+            IsControllable = false;
+        }
+        if (other.gameObject.CompareTag("Fail"))
+        {
+            GameManager.Instance.ResetScene();
+        }
+    }
+
+
+    void CameraFollow()
+    {
+        cam.position = gameObject.transform.position + Offset;
+    }
 
 }
