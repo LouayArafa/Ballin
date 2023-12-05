@@ -13,7 +13,7 @@ public class Ballbehavior : MonoBehaviour
 
     private Vector3 Velocity;
 
-    public float LunchSpeed;
+    public float LaunchSpeed;
     public float SideSpeed;
     public float MaxSpeed;
     #endregion
@@ -29,7 +29,7 @@ public class Ballbehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_rigidbody.AddForce(cam.transform.forward * LunchSpeed);
+        m_rigidbody.AddForce(cam.transform.forward * LaunchSpeed);
         m_rigidbody.AddForce(cam.transform.right * inputs.HorizontalMovement * SideSpeed);
         m_rigidbody.velocity = Vector3.ClampMagnitude(m_rigidbody.velocity, MaxSpeed);
     }
