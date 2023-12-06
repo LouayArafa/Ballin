@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc45bba1d78b4b428d4c02464fc7905, type: 3}
   m_Name: Rules
   m_EditorClassIdentifier: 
+  PlayersCount: 3
+  RoundsCout: 2
+  PlayerNames:
+  - WAEL
+  - LOUAY
+  - AHMED

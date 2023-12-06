@@ -49,7 +49,6 @@ public class Ballbehavior : MonoBehaviour
     {
         if(other.gameObject.name == "Limit")
         {
-            Debug.Log("bobma");
             IsControllable = false;
         }
         if (other.gameObject.CompareTag("Fail"))

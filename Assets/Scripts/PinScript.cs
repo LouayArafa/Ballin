@@ -18,7 +18,7 @@ public class PinScript : MonoBehaviour
     {
         if(rb.velocity.magnitude > MovementThreshold)
         {
-            gameManager.addScore(Score);
+            gameManager.AddScore(Score);
             gameObject.GetComponent<PinScript>().enabled = false;
         }
     }
