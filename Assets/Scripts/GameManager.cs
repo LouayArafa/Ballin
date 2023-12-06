@@ -54,12 +54,13 @@ public class GameManager : MonoBehaviour
 
     void StartBallin()
     {
+
         Time.timeScale = 0;
         maxRounds = rules.RoundsCout;
         currentRound = 1;
         //display names and score in top right
 
-        //trimming lists
+        //trimw²ming lists
         PlayersNames.RemoveRange(rules.PlayersCount, PlayersNames.Count - rules.PlayersCount);
         PlayersScore.RemoveRange(rules.PlayersCount, PlayersScore.Count - rules.PlayersCount);
         Scores.RemoveRange(rules.PlayersCount, Scores.Count - rules.PlayersCount);
@@ -84,8 +85,16 @@ public class GameManager : MonoBehaviour
     {
         Scores[CurrPlayerID] += score;
         PlayersScore[CurrPlayerID].text = Scores[CurrPlayerID].ToString();
+        //StartCoroutine(ResetSceneAfterDely());
+        
     }
 
+    IEnumerator ResetSceneAfterDely()
+    {
+        yield return new WaitForSeconds(5);
+        ResetScene();
+
+    }
 
     public void NextPlayer()
     {
@@ -121,9 +130,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
         ReadyBTN.SetActive(true);
         NextPlayer();
-        Time.timeScale = 0;
 
+        Time.timeScale = 0;
+        // Change the skybox material
     }
+
+    [SerializeField] private List<Material> skyboxMaterials;
+
+   
     public void LaunchBall()
     {
         Time.timeScale = 1;
@@ -166,6 +180,8 @@ public class GameManager : MonoBehaviour
 
     public void PlayAgain()
     {
+        
         SceneManager.LoadScene("Menu");
+        Destroy(gameObject);
     }
 }

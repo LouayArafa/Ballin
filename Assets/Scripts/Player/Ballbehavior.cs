@@ -26,15 +26,15 @@ public class Ballbehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        rb.AddForce(cam.transform.forward * LaunchSpeed);
+        rb.AddForce(cam.transform.forward * LaunchSpeed * Time.deltaTime);
 
         if (IsControllable == true)
         {
             float HorizontalMovement = Input.GetAxis("Horizontal");
 
-            rb.AddForce(cam.transform.right * HorizontalMovement * SideSpeed);
+            rb.AddForce(cam.transform.right * HorizontalMovement * SideSpeed * Time.deltaTime);
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, MaxSpeed);
 
             CameraFollow();
